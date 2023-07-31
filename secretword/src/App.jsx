@@ -114,14 +114,14 @@ function App() {
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
     // win condition
-    if (guessedLetters.length === uniqueLetters.length) {
+    if (guessedLetters.length === uniqueLetters.length && gameStage === stages[1].name) {
       // add score
       setScore((actualScore) => (actualScore += 100));
 
       // restart game with new word
       startGame();
     }
-  }, [guessedLetters, letters, startGame]);
+  }, [guessedLetters, letters, startGame, gameStage]);
 
   // restart game
   const retry = () => {
